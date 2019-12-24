@@ -33,7 +33,7 @@
 		</c:when>
 		<c:otherwise>
 			<div>
-				<a href="/product/select"><button>주문 창</button></a>
+				<a href="/order/main"><button>주문 창</button></a>
 				<a href="/login/logout"><button>로그아웃</button></a>
 			</div>
 		</c:otherwise>

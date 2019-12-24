@@ -10,4 +10,8 @@
   		SELECT * FROM PRODUCT
   		WHERE productNo =${productNo}
   	</select>
+  	<select id="getOptionByNo" parameterType="int" resultType="product.dto.Option">
+  		SELECT * FROM productOption
+  		WHERE productOptionNo =${productNo}
+  	</select>
   </mapper>

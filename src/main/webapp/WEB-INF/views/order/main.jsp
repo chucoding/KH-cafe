@@ -55,7 +55,7 @@ div div>.selected {
 
 .info_body {
 	height: 100%;
-	width: 80%;
+	width: 35%;
 	margin: 0;
 	float: left;
 }
@@ -71,7 +71,7 @@ div div>.selected {
 
 .info_body > div {
 	height: 100%;
-	width: 80%;
+	width: 30%;
 	z-index: 1;
 	position: absolute;
 	background: white;
@@ -79,7 +79,7 @@ div div>.selected {
 
 .info_body > .selected_info {
 	height: 100%;
-	width: 80%;
+	width: 30%;
 	z-index: 10;
 	position: absolute;
 	background: white;
@@ -95,6 +95,27 @@ div div>.selected {
 	background: #337ab7;
 	color: white;
 }
+#product_view > tbody > tr>td:nth-child(1){
+	width:120px;
+	height:30px;
+
+}
+
+#product_view > tbody > tr > td{
+	width:90px;
+	height:30px;
+}
+
+.order_idx > div{
+	width: 100px;
+	height:28px;
+	float:left;
+	border: 1px solid #337ab7;
+}
+#insertcnt{
+	width: 40px;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -147,6 +168,24 @@ div div>.selected {
 					$(".info_body > .info"+index).addClass("selected_info")
 					$(".side_bar > .selected_con").removeClass("selected_con");
 					$(".side_bar").children("div").eq(index-1).addClass("selected_con");
+
+				})
+				$("#inputOrder").on('click',function(){
+					
+					$.ajax({
+						type : "get",
+						url : "/product/productInfo",
+						data : {
+							"place_number" : 0
+						},
+						dataType : "json",
+						success : function() {
+							console.log("성공")
+						},
+						error : function() {
+							console.log("fail");
+						}
+					})
 
 				})
 				
