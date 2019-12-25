@@ -3,4 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="order.dao.face.OrderDao">
+ 
+ 	<insert id="insert" parameterType="order.dto.OrderProduct">
+ 	<foreach item="list" collection="list" separator=" " open="INSERT ALL " close="SELECT * FROM DUAL">
+	INTO ORDERPRODUCT(orderProno,orderNo,productNo,productcnt)
+	VALUES (#{list.orderProno},#{list.orderNo},#{list.productNo},#{list.productcnt})
+	</foreach>
+	
+ 	</insert>
+ 	<insert id="insertBase" parameterType="order.dto.OrderBase">
+ 	INSERT INTO ORDERBASE(orderNo,cusno,orderDate) VALUES(#{orderNo},#{cusno},SYSDATE)
+ 	
+ 	</insert>
+ 	<select id="getSeq" resultType="int">
+ 		SELECT cafeorderno_seq.nextval from DUAL
+ 	</select>
+ 	<select id="getProno" resultType="int">
+ 		SELECT cafeorderProno_seq.nextval from DUAL
+ 	</select>
  </mapper>

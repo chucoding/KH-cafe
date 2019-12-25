@@ -22,20 +22,20 @@ public class LoginController {
 	public void login() {}
 	
 	@RequestMapping(value="/login/login",method=RequestMethod.POST)
-	public String loginProc(Model model,Customer customer) {
+	public String loginProc(HttpSession session,Model model,Customer customer) {
 		logger.info("로그인 진행");
 		logger.info(customer.toString());
 		if(!customer.equals(null)&& !customer.getCusid().equals(null)) {
 			boolean ckLog = loginService.login(customer);
 			model.addAttribute("logCk", ckLog);
 			if(ckLog) {
-				model.addAttribute("userid", customer.getCusid());
-				model.addAttribute("logCk", ckLog);
+				session.setAttribute("userid", customer.getCusid());
+				session.setAttribute("logCk", ckLog);
 			}
 			logger.info(String.valueOf(ckLog));
 			return "redirect:/main";
 		}else {
-			model.addAttribute("logCk", false);
+			session.setAttribute("logCk", false);
 			return "redirect:/main";
 		}
 	}

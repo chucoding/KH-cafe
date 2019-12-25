@@ -140,24 +140,6 @@ div div>.selected {
 							})
 							
 						});
-				//center 리스트 반환
-				$("#product_indx").children().children().on("click", "#listSetbtn", function() {
-					$.ajax({
-						type : "get",
-						url : "/product/productInfo",
-						data : {
-							"place_number" : 0
-						},
-						dataType : "html",
-						success : function(data) {
-							$(".product_list").html(data);
-						},
-						error : function() {
-							console.log("fail");
-						}
-					})
-				})
-				
 				
 				//인덱스 선택 버튼 동작
 				$(".side_bar .bar_con").on('click',function(){
@@ -170,26 +152,6 @@ div div>.selected {
 					$(".side_bar").children("div").eq(index-1).addClass("selected_con");
 
 				})
-				$("#inputOrder").on('click',function(){
-					
-					$.ajax({
-						type : "get",
-						url : "/product/productInfo",
-						data : {
-							"place_number" : 0
-						},
-						dataType : "json",
-						success : function() {
-							console.log("성공")
-						},
-						error : function() {
-							console.log("fail");
-						}
-					})
-
-				})
-				
-				
 			});
 </script>
 </head>

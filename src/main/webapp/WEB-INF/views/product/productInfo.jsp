@@ -21,7 +21,7 @@ $(document).ready(function() {
 			}
 			console.log("확인 "+i+"열"+$("#order_detail").children("div").eq(i).children("div").eq(0).text());
 		}
-		var div =$("<div>").attr({name:"product", class:"order_idx"})
+		var div =$("<div>").attr({name:"product", class:"order_idx" ,proNo:'${productInfo.productNo}'})
 		div.html("<div>${productInfo.productName}</div><div>${productInfo.price}</div><div></div>")
 		var btn =$("<input>").attr({type:'number', min:'0',id:'insertcnt',value:$("#insertcnt").val()})
 		div.children("div").eq(2).append(btn)
@@ -74,7 +74,7 @@ $(document).ready(function() {
 	<table border="1" id="product_view">
 		<tr>
 			<td>상품명</td>
-			<td>${productInfo.productName }</td>
+			<td>${productInfo.productName }<input type="hidden" value='${productInfo.productNo}'/></td>
 		</tr>
 		<tr>
 			<td>기본 카테고리</td>

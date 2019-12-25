@@ -2,20 +2,20 @@ package order.dto;
 
 public class OrderProduct {
 	private int orderProno;
-    private int orderno;
-    private int productNo;
+    private int orderNo;
+    public int getOrderNo() {
+		return orderNo;
+	}
+	public void setOrderNo(int orderNo) {
+		this.orderNo = orderNo;
+	}
+	private int productNo;
     private int productcnt;
     public int getOrderProno() {
 		return orderProno;
 	}
 	public void setOrderProno(int orderProno) {
 		this.orderProno = orderProno;
-	}
-	public int getOrderno() {
-		return orderno;
-	}
-	public void setOrderno(int orderno) {
-		this.orderno = orderno;
 	}
 	public int getProductNo() {
 		return productNo;
@@ -31,7 +31,7 @@ public class OrderProduct {
 	}
 	@Override
 	public String toString() {
-		return "OrderProduct [orderProno=" + orderProno + ", orderno=" + orderno + ", productNo=" + productNo
+		return "OrderProduct [orderProno=" + orderProno + ", orderNo=" + orderNo + ", productNo=" + productNo
 				+ ", productcnt=" + productcnt + "]";
 	}
 	

@@ -6,4 +6,6 @@ public interface LoginDao {
 
 	public int ckInfo(Customer customer);
 
+	public int getNoById(String attribute);
+
 }

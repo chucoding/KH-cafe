@@ -9,5 +9,9 @@
   		SELECT count(*) FROM CUSTOMER
   		WHERE cusid=#{cusid} AND cuspw =#{cuspw}
   	</select>
+	<select id ="getNoById" parameterType="String" resultType="int">
+  		SELECT cusno FROM CUSTOMER
+  		WHERE cusid=#{attribute}
+  	</select>
 
 </mapper>

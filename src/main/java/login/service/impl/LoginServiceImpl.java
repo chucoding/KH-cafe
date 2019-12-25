@@ -24,4 +24,10 @@ public class LoginServiceImpl implements LoginService {
 		
 	}
 
+	@Override
+	public int getcusNo(String attribute) {
+		int no = loginDao.getNoById(attribute);
+		return no;
+	}
+
 }

@@ -7,16 +7,31 @@
 $(document).ready(function() {
 //플래너 정보 입력
 	$("#inputOrder").on('click', function() {
+		var orderList = [];
+		var productNo = []
+		var productcnt = []
+		for(var i = 1; i<$("#order_detail").children().size();i++){
+			var no = $("#order_detail").children("div").eq(i).attr("prono");
+			console.log(no);
+			productNo.push(no)
+			productcnt.push($("#order_detail").children("div").eq(i).children("div").eq(2).children("input").eq(0).val())
+				
+				
+				console.log("확인 "+i+"열"+$("#order_detail").children("div").eq(i).children("div").eq(0).text());
+			}
+		console.log(productNo)
+		console.log(productcnt)
 		$.ajax({
-			type : "get",
-			url : "/product/productInfo",
+			type : "post",
+			url : "/order/input",
 			data : {
-				"productNo" : productno
+				"productNo" : productNo,
+				"productcnt":productcnt
 			},
-			dataType : "html",
+			dataType : "text",
 			success : function(data) {
-				$(".product_list").html(data);
-			},
+				console.log("성공")
+			}	,
 			error : function() {
 				console.log("fail");
 			}

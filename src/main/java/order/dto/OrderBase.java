@@ -6,6 +6,7 @@ public class OrderBase {
 	private int orderNo;
     private int cusno;    
     private Date orderDate;
+    private String cusReq;
     @Override
 	public String toString() {
 		return "OrderBase [orderNo=" + orderNo + ", cusno=" + cusno + ", orderDate=" + orderDate + ", cusReq=" + cusReq
@@ -35,5 +36,5 @@ public class OrderBase {
 	public void setCusReq(String cusReq) {
 		this.cusReq = cusReq;
 	}
-	private String cusReq;
+	
 }
