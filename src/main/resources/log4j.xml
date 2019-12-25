@@ -14,6 +14,60 @@
 	<logger name="com.khcafe.www">
 		<level value="info" />
 	</logger>
+
+	<logger name="login">
+		<level value="info" />
+	</logger>
+	<logger name="order">
+		<level value="info" />
+	</logger>
+	<logger name="payment">
+		<level value="info" />
+	</logger>
+	<logger name="product">
+		<level value="info" />
+	</logger>
+	
+	
+	<!--  log4jdbc-remix Loggers -->
+	<!--  JDBC log -->
+	<logger name="jdbc.connection" additivity="false">
+		<level value="WARN"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<logger name="jdbc.audit" additivity="false">
+		<level value="WARN"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<logger name="jdbc.sqlonly" additivity="false">
+		<level value="WARN"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<logger name="jdbc.sqltiming" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<logger name="jdbc.resultset" additivity="false">
+		<level value="WARN"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<logger name="jdbc.resultsettable" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<!-- mybatis - -->
+	<logger name="org.mybatis" additivity="false">
+		<level value="WARN"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
