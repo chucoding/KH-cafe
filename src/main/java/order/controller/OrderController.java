@@ -50,6 +50,7 @@ public class OrderController {
 		//인자 얻기
 		int seqNo = orderService.getSeqNo();
 		logger.info("seqNo : "+seqNo);
+		logger.info((String)session.getAttribute("userid"));
 		int cusNo = loginService.getcusNo((String)session.getAttribute("userid"));
 		logger.info("cusNo : "+cusNo);
 		//ajax로 보낸 값들을 List형 oederPorduct에 저장
