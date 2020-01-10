@@ -115,7 +115,10 @@ div div>.selected {
 #insertcnt{
 	width: 40px;
 }
-
+.order_idx{
+	width: 405px;
+	height:28px;
+}
 </style>
 
 <script type="text/javascript">

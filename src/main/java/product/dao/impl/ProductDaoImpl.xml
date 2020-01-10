@@ -11,7 +11,13 @@
   		WHERE productNo =${productNo}
   	</select>
   	<select id="getOptionByNo" parameterType="int" resultType="product.dto.Option">
-  		SELECT * FROM productOption
-  		WHERE productOptionNo =${productNo}
+  		SELECT
+    		O.*
+		FROM product P, categorydetail CD, categorybase CB, optionBase O
+		WHERE 1=1
+			AND P.categorymapno = CD.categorymapno
+			AND CD.categoryno = CB.categoryno
+			AND CB.categoryno = O.categoryno
+			AND productno = ${productNo}
   	</select>
   </mapper>

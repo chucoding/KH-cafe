@@ -1,20 +1,28 @@
 package product.dto;
 
 public class Option {
-	private int productOptionNo;
-	private String productOptionName;
+	private int optionNo;
+	private String optionName;
 	private int optionValue;
-	public int getProductOptionNo() {
-		return productOptionNo;
+	private int categoryNo;
+	
+	public int getOptionNo() {
+		return optionNo;
 	}
-	public void setProductOptionNo(int productOptionNo) {
-		this.productOptionNo = productOptionNo;
+	public void setOptionNo(int optionNo) {
+		this.optionNo = optionNo;
 	}
-	public String getProductOptionName() {
-		return productOptionName;
+	public String getOptionName() {
+		return optionName;
 	}
-	public void setProductOptionName(String productOptionName) {
-		this.productOptionName = productOptionName;
+	public void setOptionName(String optionName) {
+		this.optionName = optionName;
+	}
+	public int getCategoryNo() {
+		return categoryNo;
+	}
+	public void setCategoryNo(int categoryNo) {
+		this.categoryNo = categoryNo;
 	}
 	public int getOptionValue() {
 		return optionValue;
@@ -24,7 +32,7 @@ public class Option {
 	}
 	@Override
 	public String toString() {
-		return "Option [productOptionNo=" + productOptionNo + ", productOptionName=" + productOptionName
-				+ ", optionValue=" + optionValue + "]";
+		return "Option [optionNo=" + optionNo + ", optionName=" + optionName + ", optionValue=" + optionValue
+				+ ", categoryNo=" + categoryNo + "]";
 	}
 }

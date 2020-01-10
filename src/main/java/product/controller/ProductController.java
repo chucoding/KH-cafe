@@ -27,7 +27,7 @@ public class ProductController {
 	public void productInfo(Product product,Model model) {
 		product = productService.findInfo(product.getProductNo());
 		logger.info(product.toString());
-		Option option = productService.getOption(product.getProductOptionNo());
+		List<Option> option = productService.getOption(product.getCategoryMapNo());
 		model.addAttribute("productInfo", product);
 		model.addAttribute("option_list", option);
 	}

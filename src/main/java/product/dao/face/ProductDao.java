@@ -11,6 +11,6 @@ public interface ProductDao {
 
 	public Product selectByNo(int productNo);
 
-	public Option getOptionByNo(int productNo);
+	public List<Option> getOptionByNo(int productNo);
 
 }

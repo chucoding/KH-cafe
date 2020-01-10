@@ -11,6 +11,6 @@ public interface ProductService {
 
 	public Product findInfo(int productNo);
 
-	public Option getOption(int productNo);
+	public List<Option> getOption(int productNo);
 
 }

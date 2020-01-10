@@ -4,27 +4,31 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	//플래너 정보 입력
+	//정보 입력
 	$("#insertBtn").on('click', function() {
 		var index = $("#order_detail").children().size()+1;
 		console.log(index);
 		for(var i = 1; i<$("#order_detail").children().size();i++){
-			if($("#order_detail").children("div").eq(i).children("div").eq(0).text()=='${productInfo.productName}'){
-				var cnt =$("#order_detail").children("div").eq(i).children("div").eq(2).children("input").eq(0).val()
+			if($("#order_detail").children("div").eq(i).children("div").eq(0).text()=='${productInfo.productName}'  &&$("#order_detail").children("div").eq(i).children("div").eq(2).text()== $("#optionVal option:selected").text()){
+				var cnt =$("#order_detail").children("div").eq(i).children("div").eq(3).children("input").eq(0).val()
 				
-				console.log(cnt+$("#insertcnt").val())
+				console.log(cnt+$("#proCnt").val())
 				
-				var d = Number(cnt)+Number($("#insertcnt").val());
+				var d = Number(cnt)+Number($("#proCnt").val());
 				console.log(d);
-				$("#order_detail").children("div").eq(i).children("div").eq(2).children("input").val(d);
+				$("#order_detail").children("div").eq(i).children("div").eq(3).children("input").val(d);
 				return false;
 			}
 			console.log("확인 "+i+"열"+$("#order_detail").children("div").eq(i).children("div").eq(0).text());
 		}
-		var div =$("<div>").attr({name:"product", class:"order_idx" ,proNo:'${productInfo.productNo}'})
-		div.html("<div>${productInfo.productName}</div><div>${productInfo.price}</div><div></div>")
-		var btn =$("<input>").attr({type:'number', min:'0',id:'insertcnt',value:$("#insertcnt").val()})
-		div.children("div").eq(2).append(btn)
+		var div =$("<div>").attr({name:"product",proNo:'${productInfo.productNo}'})
+		div.addClass("order_idx");
+		div.html("<div>${productInfo.productName}</div><div>${productInfo.price}</div><div></div><div></div>")
+		var btn =$("<input>").attr({type:'number', min:'0',id:'insertcnt',value:$("#proCnt").val()})
+		var opVal =$("<input>").attr({type:'hidden', id:'optionNo',value:$("#optionVal").val()})
+		div.children("div").eq(2).text($("#optionVal option:selected").text())
+		div.children("div").eq(2).append(opVal)
+		div.children("div").eq(3).append(btn)
 		$("#order_detail").append(div);
 
 	});
@@ -92,9 +96,22 @@ $(document).ready(function() {
 			<td>판매상태</td>
 			<td>${productInfo.selStatus }</td>
 		</tr>
+	</table>
+	<hr>
+	<table>
+		<tr>
+			<th>옵션 이름</th>
+			<th>수량</th>
+		</tr>
 			<tr>
-				<td>수량</td>
-				<td><input type="number" min="0" value="0" id="insertcnt"></td>
+				<td>
+					<select id="optionVal">
+		<c:forEach var="option" items="${option_list }">
+						<option value="${option.optionNo }">${option.optionName }</option>
+		</c:forEach>
+					</select>
+				</td>
+				<td><input id="proCnt" type="number" min="0"></td>
 			</tr>
 	</table>
 		<button id="returnBtn">목록으로</button><button id="insertBtn">입력</button>	

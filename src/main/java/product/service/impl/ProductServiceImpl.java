@@ -20,14 +20,14 @@ public class ProductServiceImpl implements ProductService{
 		return productDao.selectAll();
 	}
 
-		@Override
+	@Override
 	public Product findInfo(int productNo) {
 		return productDao.selectByNo(productNo);
 	}
 
-		@Override
-		public Option getOption(int productNo) {
+	@Override
+	public List<Option> getOption(int productNo) {
 			return productDao.getOptionByNo(productNo);
-		}
+	}
 
 }
