@@ -41,6 +41,11 @@ public class OrderServiceImpl implements OrderService{
 		orderDao.insertBase(orderBase);
 	}
 
+	@Override
+	public List<OrderBase> getOrderList(OrderBase order) {
+		return orderDao.selectByCusNo(order);
+	}
+
 	
 	
 	

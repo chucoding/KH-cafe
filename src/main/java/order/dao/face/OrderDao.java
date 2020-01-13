@@ -15,4 +15,6 @@ public interface OrderDao {
 
 	public int getProno();
 
+	public List<OrderBase> selectByCusNo(OrderBase order);
+
 }

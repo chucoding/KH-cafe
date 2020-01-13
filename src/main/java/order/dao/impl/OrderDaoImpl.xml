@@ -12,7 +12,8 @@
 	
  	</insert>
  	<insert id="insertBase" parameterType="order.dto.OrderBase">
- 	INSERT INTO ORDERBASE(orderNo,cusno,orderDate) VALUES(#{orderNo},#{cusno},SYSDATE)
+ 	INSERT INTO ORDERBASE(orderNo,cusno,orderDate,shopNo,orderStatus) 
+ 	VALUES(#{orderNo},#{cusno},#{orderDate},#{shopNo},0)
  	
  	</insert>
  	<select id="getSeq" resultType="int">
@@ -20,5 +21,9 @@
  	</select>
  	<select id="getProno" resultType="int">
  		SELECT cafeorderProno_seq.nextval from DUAL
+ 	</select>
+ 	
+ 	<select id="selectByCusNo" parameterType="order.dto.OrderBase" resultType="order.dto.OrderBase">
+ 		SELECT * from ORDERBASE WHERE cusNo=${cusno}
  	</select>
  </mapper>

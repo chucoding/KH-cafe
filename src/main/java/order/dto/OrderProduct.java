@@ -3,14 +3,15 @@ package order.dto;
 public class OrderProduct {
 	private int orderProno;
     private int orderNo;
+    private int productNo;
+    private int productcnt;
+    
     public int getOrderNo() {
 		return orderNo;
 	}
 	public void setOrderNo(int orderNo) {
 		this.orderNo = orderNo;
 	}
-	private int productNo;
-    private int productcnt;
     public int getOrderProno() {
 		return orderProno;
 	}

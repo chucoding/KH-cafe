@@ -87,6 +87,8 @@
 	 payment.service,
 	 product.controller,
 	 product.service
+	 shop.controller,
+	 shop.service
 	 " />
 	
 </beans:beans>

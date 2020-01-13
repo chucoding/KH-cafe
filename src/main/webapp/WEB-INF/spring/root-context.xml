@@ -44,6 +44,7 @@
 				<value>classpath:/order/dao/impl/**/*DaoImpl.xml</value>
 				<value>classpath:/payment/dao/impl/**/*DaoImpl.xml</value>
 				<value>classpath:/product/dao/impl/**/*DaoImpl.xml</value>
+				<value>classpath:/shop/dao/impl/**/*DaoImpl.xml</value>
 			</array>
 		</property>
 	</bean>
@@ -51,6 +52,6 @@
 	<!-- 마이바티스 DAO인터페이스 설정 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="login.dao.face, order.dao.face,
-		 payment.dao.face, product.dao.face" />
+		 payment.dao.face, product.dao.face,shop.dao.face" />
 	</bean>
 </beans>

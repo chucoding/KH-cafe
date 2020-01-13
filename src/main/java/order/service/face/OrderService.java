@@ -13,4 +13,6 @@ public interface OrderService {
 
 	public int getSeqNo();
 
+	public List<OrderBase> getOrderList(OrderBase order);
+
 }

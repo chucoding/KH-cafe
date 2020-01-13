@@ -1,16 +1,16 @@
 package order.dto;
 
-import java.util.Date;
-
 public class OrderBase {
 	private int orderNo;
     private int cusno;    
-    private Date orderDate;
+    private int shopNo;
+    private String orderDate;
     private String cusReq;
-    @Override
+    private int orderStatus;
+	@Override
 	public String toString() {
-		return "OrderBase [orderNo=" + orderNo + ", cusno=" + cusno + ", orderDate=" + orderDate + ", cusReq=" + cusReq
-				+ "]";
+		return "OrderBase [orderNo=" + orderNo + ", cusno=" + cusno + ", shopNo=" + shopNo + ", orderDate=" + orderDate
+				+ ", cusReq=" + cusReq + ", orderStatus=" + orderStatus + "]";
 	}
 	public int getOrderNo() {
 		return orderNo;
@@ -24,10 +24,16 @@ public class OrderBase {
 	public void setCusno(int cusno) {
 		this.cusno = cusno;
 	}
-	public Date getOrderDate() {
+	public int getShopNo() {
+		return shopNo;
+	}
+	public void setShopNo(int shopNo) {
+		this.shopNo = shopNo;
+	}
+	public String getOrderDate() {
 		return orderDate;
 	}
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
 	public String getCusReq() {
@@ -36,5 +42,14 @@ public class OrderBase {
 	public void setCusReq(String cusReq) {
 		this.cusReq = cusReq;
 	}
+	public int getOrderStatus() {
+		return orderStatus;
+	}
+	public void setOrderStatus(int orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+    
+    
+
 	
 }
