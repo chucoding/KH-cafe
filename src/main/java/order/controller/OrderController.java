@@ -46,6 +46,34 @@ public class OrderController {
 		}
 		model.addAttribute("shopList", shopList);
 	}
+	
+	@RequestMapping(value="/order/detail",method=RequestMethod.POST)
+	public String detail(HttpSession session,OrderBase order,Model model) {
+		logger.info("userId : "+session.getAttribute("userid"));
+		logger.info("orderNo : "+order.getOrderNo());
+		
+		//현재 접속 유저 확인
+		int cusNo=loginService.getcusNo((String)session.getAttribute("userid"));
+		//입력받은 주문번호로 주문정보 가져오기
+		OrderBase orderDetail=orderService.getDetail(order);
+		logger.info(orderDetail.toString());
+		//가져온 주문정보와 접속유저 일치 여부 확인
+		if(cusNo!=orderDetail.getCusno()) {
+			return "/order/search";
+		}
+		
+		//가져온 주문정보로 상세정보 검색
+		List<OrderProduct> orderProductList = orderService.getOrderProList(orderDetail);
+		logger.info(orderProductList.toString());
+		List<Product> productList = productService.getProductList(orderProductList);
+		
+		//가져온 정보들을 전송
+		model.addAttribute("order", orderDetail);
+		model.addAttribute("orderProductList",orderProductList);
+		model.addAttribute("productList",productList);
+		return "/order/detail";
+	}
+	
 	@RequestMapping(value="/order/input",method=RequestMethod.POST)
 	public @ResponseBody String input(HttpSession session,
 			@RequestParam(value="productNo[]")int[] prono,

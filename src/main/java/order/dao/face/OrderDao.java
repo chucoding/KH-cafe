@@ -17,4 +17,8 @@ public interface OrderDao {
 
 	public List<OrderBase> selectByCusNo(OrderBase order);
 
+	public OrderBase getInfo(OrderBase order);
+
+	public List<OrderProduct> getOrderByOrderNo(OrderBase order);
+
 }

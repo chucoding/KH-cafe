@@ -46,6 +46,17 @@ public class OrderServiceImpl implements OrderService{
 		return orderDao.selectByCusNo(order);
 	}
 
+	@Override
+	public OrderBase getDetail(OrderBase order) {
+		return order=orderDao.getInfo(order);
+	}
+
+	@Override
+	public List<OrderProduct> getOrderProList(OrderBase order) {
+		List<OrderProduct> list;
+		return list=orderDao.getOrderByOrderNo(order);
+	}
+
 	
 	
 	

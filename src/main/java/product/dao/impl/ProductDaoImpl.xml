@@ -20,4 +20,19 @@
 			AND CB.categoryno = O.categoryno
 			AND productno = ${productNo}
   	</select>
+  	
+  	<select id="getProductByNo" parameterType="hashmap" resultType="product.dto.Product">
+  		SELECT *
+		FROM PRODUCT
+		<where>
+			<if test="orderProductList != null">
+	 		productNo IN 
+	 		<foreach collection="orderProductList" item="orderProduct"
+	 			open="(" close=")" separator=",">
+	 			${orderProduct.productNo}
+	  		</foreach>
+	  		</if>
+  		</where>
+  	</select>
+  	
   </mapper>

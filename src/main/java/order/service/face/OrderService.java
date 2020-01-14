@@ -15,4 +15,8 @@ public interface OrderService {
 
 	public List<OrderBase> getOrderList(OrderBase order);
 
+	public OrderBase getDetail(OrderBase order);
+
+	public List<OrderProduct> getOrderProList(OrderBase order);
+
 }

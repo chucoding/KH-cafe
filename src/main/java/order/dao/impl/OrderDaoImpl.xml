@@ -26,4 +26,14 @@
  	<select id="selectByCusNo" parameterType="order.dto.OrderBase" resultType="order.dto.OrderBase">
  		SELECT * from ORDERBASE WHERE cusNo=${cusno}
  	</select>
+ 	
+ 	<select id="getInfo" parameterType="order.dto.OrderBase" resultType="order.dto.OrderBase">
+ 		SELECT * from ORDERBASE WHERE orderNo=${orderNo}
+ 	</select>
+ 	
+ 	<select id="getOrderByOrderNo" parameterType="order.dto.OrderBase" resultType="order.dto.OrderProduct">
+ 		SELECT * from ORDERPRODUCT WHERE orderNo=${orderNo}
+ 	</select>
+ 	
+ 	
  </mapper>

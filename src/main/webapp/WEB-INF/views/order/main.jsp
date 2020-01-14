@@ -203,7 +203,7 @@ div div>.selected {
 			    	"columnDefs" : [
 			    	      {width: '5%', targets : [0] },
 			    	      {"render":function(data){
-				    			data='<a href="/order/detail?orderNo='+data+'">'+data+'</a>'
+				    			data='<div onclick="detail('+data+')">'+data+'</div>'
 				    					return data;
 				    		} ,width: '7%', targets : [1] },
 			    	      { width: '5%', targets : [2] },
@@ -307,6 +307,22 @@ div div>.selected {
 	function reload(){
 		$('#myTable').DataTable().ajax.reload();
 	}
+	function detail(order_No){
+		$.ajax({
+			type : "post",
+			url : "/order/detail",
+			data : {
+				"orderNo" :order_No
+			},
+			dataType : "html",
+			success : function(data) {
+				console.log("success")
+			}	,
+			error : function() {
+				console.log("fail");
+			}
+		})
+	}
 </script>
 </head>
 
@@ -335,6 +351,7 @@ div div>.selected {
 			<div class="info5">
 				<jsp:include page="../../views/payment/list.jsp"></jsp:include>
 			</div>
+			
 		</div>
 	</div>
 </body>

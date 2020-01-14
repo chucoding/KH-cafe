@@ -1,5 +1,6 @@
 package product.dao.face;
 
+import java.util.HashMap;
 import java.util.List;
 
 import product.dto.Option;
@@ -12,5 +13,7 @@ public interface ProductDao {
 	public Product selectByNo(int productNo);
 
 	public List<Option> getOptionByNo(int productNo);
+
+	public List<Product> getProductByNo(HashMap<String, Object> map);
 
 }
