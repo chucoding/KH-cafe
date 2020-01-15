@@ -54,14 +54,15 @@ public class OrderController {
 		
 		//현재 접속 유저 확인
 		int cusNo=loginService.getcusNo((String)session.getAttribute("userid"));
+		logger.info("접속 유저 번호 : "+cusNo);
 		//입력받은 주문번호로 주문정보 가져오기
 		OrderBase orderDetail=orderService.getDetail(order);
 		logger.info(orderDetail.toString());
 		//가져온 주문정보와 접속유저 일치 여부 확인
 		if(cusNo!=orderDetail.getCusno()) {
+			logger.info("유저 불일치");
 			return "/order/search";
 		}
-		
 		//가져온 주문정보로 상세정보 검색
 		List<OrderProduct> orderProductList = orderService.getOrderProList(orderDetail);
 		logger.info(orderProductList.toString());
@@ -71,6 +72,7 @@ public class OrderController {
 		model.addAttribute("order", orderDetail);
 		model.addAttribute("orderProductList",orderProductList);
 		model.addAttribute("productList",productList);
+		model.addAttribute("cusid",(String)session.getAttribute("userid"));
 		return "/order/detail";
 	}
 	
@@ -78,7 +80,7 @@ public class OrderController {
 	public @ResponseBody String input(HttpSession session,
 			@RequestParam(value="productNo[]")int[] prono,
 			@RequestParam(value="productcnt[]")int[] cnt,
-			@RequestParam(value="optionNo[]")int[] option,
+//			@RequestParam(value="optionNo[]")int[] option,
 			@RequestParam(value="shopNo")int shopno,
 			Model model) {
 		List<OrderProduct> list = new ArrayList<OrderProduct>();
@@ -93,9 +95,9 @@ public class OrderController {
 		//ajax로 보낸 값들을 List형 oederPorduct에 저장
 		for(int i=0;i<prono.length;i++) {
 			OrderProduct order= new OrderProduct();
-			logger.info((i+1)+"번째 : "+prono[i]);
-			logger.info((i+1)+"번째 : "+cnt[i]);
-			logger.info((i+1)+"번째 : "+option[i]);
+			logger.info((i+1)+"번째 상품명 : "+prono[i]);
+			logger.info((i+1)+"번째 상품 갯수: "+cnt[i]);
+//			logger.info((i+1)+"번째 : "+option[i]);
 			order.setOrderNo(seqNo);
 			order.setProductNo(prono[i]);
 			order.setProductcnt(cnt[i]);
@@ -148,5 +150,11 @@ public class OrderController {
 		return mav;
 	}
 
-	
+	@RequestMapping(value="/order/list",method=RequestMethod.GET)
+	public String list(
+			@RequestParam(value="cusid")String cusid,
+			HttpSession session) {
+
+		return "order/list";
+	}
 }

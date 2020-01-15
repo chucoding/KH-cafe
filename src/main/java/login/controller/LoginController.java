@@ -27,7 +27,6 @@ public class LoginController {
 		logger.info(customer.toString());
 		if(!customer.equals(null)&& !customer.getCusid().equals(null)) {
 			boolean ckLog = loginService.login(customer);
-			model.addAttribute("logCk", ckLog);
 			if(ckLog) {
 				session.setAttribute("userid", customer.getCusid());
 				session.setAttribute("logCk", ckLog);
@@ -57,7 +56,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/main",method=RequestMethod.GET)
 	public void main(HttpSession session) { 
-		if(session.getAttribute("logCk")==null||session.getAttribute("logCk")=="") {
+		if(session.getAttribute("logCk")==null||session.getAttribute("logCk").equals(false)) {
 			session.setAttribute("logCk", false);
 		}else {
 			session.setAttribute("logCk", true);

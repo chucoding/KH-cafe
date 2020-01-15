@@ -1,7 +1,7 @@
 package order.dto;
 
 public class OrderProduct {
-	private int orderProno;
+	private int orderPrdno;
     private int orderNo;
     private int productNo;
     private int productcnt;
@@ -12,11 +12,12 @@ public class OrderProduct {
 	public void setOrderNo(int orderNo) {
 		this.orderNo = orderNo;
 	}
-    public int getOrderProno() {
-		return orderProno;
+    
+	public int getOrderPrdno() {
+		return orderPrdno;
 	}
-	public void setOrderProno(int orderProno) {
-		this.orderProno = orderProno;
+	public void setOrderPrdno(int orderPrdno) {
+		this.orderPrdno = orderPrdno;
 	}
 	public int getProductNo() {
 		return productNo;
@@ -32,7 +33,7 @@ public class OrderProduct {
 	}
 	@Override
 	public String toString() {
-		return "OrderProduct [orderProno=" + orderProno + ", orderNo=" + orderNo + ", productNo=" + productNo
+		return "OrderProduct [orderPrdno=" + orderPrdno + ", orderNo=" + orderNo + ", productNo=" + productNo
 				+ ", productcnt=" + productcnt + "]";
 	}
 	

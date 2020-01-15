@@ -27,7 +27,6 @@
 	<c:choose>
 		<c:when test="${logCk eq false or logCk eq null  }">
 			<div>
-				<a href="/login/join"><button>회원가입</button></a>
 				<a href="/login/login"><button>로그인</button></a>
 			</div>
 		</c:when>

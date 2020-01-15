@@ -5,10 +5,10 @@
  <mapper namespace="order.dao.face.OrderDao">
  
  	<insert id="insert" parameterType="order.dto.OrderProduct">
- 	<foreach item="list" collection="list" separator=" " open="INSERT ALL " close="SELECT * FROM DUAL">
-	INTO ORDERPRODUCT(orderProno,orderNo,productNo,productcnt)
-	VALUES (#{list.orderProno},#{list.orderNo},#{list.productNo},#{list.productcnt})
-	</foreach>
+ 		<foreach item="list" collection="list" separator=" " open="INSERT ALL " close="SELECT * FROM DUAL">
+			INTO ORDERPRODUCT(orderPrdno,orderNo,productNo,productcnt)
+			VALUES (#{list.orderPrdno},#{list.orderNo},#{list.productNo},#{list.productcnt})
+		</foreach>
 	
  	</insert>
  	<insert id="insertBase" parameterType="order.dto.OrderBase">
@@ -34,6 +34,5 @@
  	<select id="getOrderByOrderNo" parameterType="order.dto.OrderBase" resultType="order.dto.OrderProduct">
  		SELECT * from ORDERPRODUCT WHERE orderNo=${orderNo}
  	</select>
- 	
  	
  </mapper>

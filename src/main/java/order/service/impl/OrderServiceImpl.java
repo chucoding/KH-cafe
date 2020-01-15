@@ -24,8 +24,9 @@ public class OrderServiceImpl implements OrderService{
 	public void input(List<OrderProduct> list) {
 		for(int i =0 ; i<list.size();i++) {
 			int prono= orderDao.getProno();
-			list.get(i).setOrderProno(prono);
+			list.get(i).setOrderPrdno(prono);
 		}
+		logger.info(list.toString());
 		orderDao.insert(list);
 	}
 
